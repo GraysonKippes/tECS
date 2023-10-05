@@ -2,19 +2,17 @@
 
 tECS is a tiny ECS written in C.
 
-Current version: 0.1.
+Current version: `0.2`
 
 ## Usage
 
-Begin by defining a component bitmask type with COMPONENT_MASK_TYPE. The number of bits in this type limits how many component-types can be accessed with a signature. By default, COMPONENT_MASK_TYPE is defined as uint8_t, meaning that eight component-types can be accessed.
+Begin by including `tECS/tecs.h`. Then register your component types with `register_component_type` and create your archetypes with `create_archetype`.
 
-Next, include component_registry.h and use the register_component_type macro to register component_types.
+After that, call `init_entity_manager` to initialize the entity manager; now you can create entities with `create_entity`.
 
-Next, include archetype.h and create the archetypes needed for the program, using the component masks.
+Once you are done with an entity, you can free it with `free_entity`.
 
-Next, include entity_manager.h and call init_entity_manager to initialize the manager, then create entities with the archetypes as needed.
-
-Make sure to free any archetypes and entities when no longer needed.
+Make sure to free any archetypes you create with `free_archetype`.
 
 ## Design
 
