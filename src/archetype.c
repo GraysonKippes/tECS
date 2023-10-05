@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-TECS_result_t create_archetype(const component_mask_t component_mask, archetype_t *archetype_ptr) {
+tECS_result_t create_archetype(const component_mask_t component_mask, archetype_t *archetype_ptr) {
 
 	if (!archetype_ptr)
 		return TECS_RESULT_SUCCESS;
@@ -36,7 +36,7 @@ TECS_result_t create_archetype(const component_mask_t component_mask, archetype_
 		return TECS_RESULT_BAD_ALLOC;
 
 	for (size_t i = 0; i < archetype_ptr->m_num_columns; ++i) {
-		TECS_result_t result = create_component_array(sizes[i], archetype_ptr->m_component_table + i);
+		tECS_result_t result = create_component_array(sizes[i], archetype_ptr->m_component_table + i);
 		if (result != TECS_RESULT_SUCCESS)
 			return result;
 	}
@@ -53,7 +53,7 @@ component_array_t archetype_get_column(archetype_t *archetype_ptr, component_ind
 	return archetype_ptr->m_component_table[archetype_ptr->m_component_indices_to_columns[component_index]];
 }
 
-TECS_result_t archetype_add_row(archetype_t *archetype_ptr, entity_t entity) {
+tECS_result_t archetype_add_row(archetype_t *archetype_ptr, entity_t entity) {
 
 	// If there are no more emtpy rows left, then allocate a new row.
 	if (archetype_ptr->m_num_used_rows >= archetype_ptr->m_num_rows) {
@@ -71,7 +71,7 @@ TECS_result_t archetype_add_row(archetype_t *archetype_ptr, entity_t entity) {
 	return TECS_RESULT_SUCCESS;
 }
 
-TECS_result_t archetype_remove_row(archetype_t *archetype_ptr, size_t row) {
+tECS_result_t archetype_remove_row(archetype_t *archetype_ptr, size_t row) {
 
 	if (row >= archetype_ptr->m_num_used_rows)
 		return TECS_RESULT_COMPONENT_TABLE_ROW_REMOVE_OUT_OF_BOUNDS;

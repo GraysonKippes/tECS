@@ -38,17 +38,17 @@ typedef struct archetype_t {
 
 // Creates a new archetype with the specified signature.
 // Automagically creates the appropriate number of component arrays as columns in the component table.
-TECS_result_t create_archetype(const component_mask_t component_mask, archetype_t *archetype_ptr);
+tECS_result_t create_archetype(const component_mask_t component_mask, archetype_t *archetype_ptr);
 
 // Returns the archetype column of the component-type indicated by the index.
 // If no such column exists, then the first column is returned.
 component_array_t archetype_get_column(archetype_t *archetype_ptr, component_index_t component_index);
 
 // Adds a new row at the end of the archetype's component table.
-TECS_result_t archetype_add_row(archetype_t *archetype_ptr, entity_t entity);
+tECS_result_t archetype_add_row(archetype_t *archetype_ptr, entity_t entity);
 
 // Removes a row from the archetype's component table.
-TECS_result_t archetype_remove_row(archetype_t *archetype_ptr, size_t row);
+tECS_result_t archetype_remove_row(archetype_t *archetype_ptr, size_t row);
 
 // Deletes the archetype, freeing all pointers.
 void free_archetype(archetype_t archetype);

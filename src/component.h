@@ -10,6 +10,7 @@
 #define COMPONENT_ARRAY_INITIAL_COUNT	8
 #endif
 
+// A component array is a dynamically-resizing array of components of the same type.
 typedef struct component_array_t {
 	
 	// Internal pointer-array of components.
@@ -22,11 +23,11 @@ typedef struct component_array_t {
 
 // Sets *component_array_ptr to a new component array, with the speicified component size.
 // If parameter component_array_ptr is null, then this function does nothing and silently returns TECS_RESULT_SUCCESS.
-TECS_result_t create_component_array(size_t component_size, component_array_t *component_array_ptr);
+tECS_result_t create_component_array(size_t component_size, component_array_t *component_array_ptr);
 
 // Resizes the component array with the specified count.
 // Returns TECS_RESULT_BAD_ALLOC if reallocation failed.
-TECS_result_t component_array_resize(component_array_t *component_array_ptr, size_t new_count);
+tECS_result_t component_array_resize(component_array_t *component_array_ptr, size_t new_count);
 
 // Returns a pointer to the component of the specified type at the given index.
 // The component array must be passed in directly, and not by pointer.

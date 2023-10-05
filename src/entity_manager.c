@@ -34,7 +34,7 @@ void init_entity_manager(void) {
 	num_allocated_entities = 0;
 }
 
-TECS_result_t create_entity(archetype_t *archetype_ptr, entity_t *entity_ptr) {
+tECS_result_t create_entity(archetype_t *archetype_ptr, entity_t *entity_ptr) {
 	
 	if (num_allocated_entities >= MAX_NUM_ENTITIES)
 		return TECS_RESULT_NO_ENTITIES_AVAILABLE;
@@ -62,7 +62,7 @@ record_t get_entity_record(entity_t entity) {
 	return entity_records[entity];
 }
 
-TECS_result_t free_entity(entity_t entity) {
+tECS_result_t free_entity(entity_t entity) {
 
 	if (entity >= MAX_NUM_ENTITIES)
 		return TECS_RESULT_INVALID_ENTITY_ID;

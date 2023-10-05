@@ -6,7 +6,7 @@ static size_t *component_sizes = NULL;
 static size_t num_registry_slots = 0;
 static size_t num_registered_components = 0;
 
-TECS_result_t register_component_type_s(size_t size, component_index_t *component_index_ptr) {
+tECS_result_t register_component_type_s(size_t size, component_index_t *component_index_ptr) {
 
 	if (!component_sizes) {
 		// The registry has not been initialized. Therefore, initialize it.

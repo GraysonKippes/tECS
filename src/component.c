@@ -2,7 +2,7 @@
 
 #include <stdlib.h>
 
-TECS_result_t create_component_array(size_t component_size, component_array_t *component_array_ptr) {
+tECS_result_t create_component_array(size_t component_size, component_array_t *component_array_ptr) {
 	if (component_array_ptr) {
 		component_array_ptr->m_component_size = component_size;
 		component_array_ptr->m_components = calloc(COMPONENT_ARRAY_INITIAL_COUNT, component_array_ptr->m_component_size);
@@ -12,7 +12,7 @@ TECS_result_t create_component_array(size_t component_size, component_array_t *c
 	return TECS_RESULT_SUCCESS;
 }
 
-TECS_result_t component_array_resize(component_array_t *component_array_ptr, size_t new_count) {
+tECS_result_t component_array_resize(component_array_t *component_array_ptr, size_t new_count) {
 	void *new_ptr = realloc(component_array_ptr->m_components, new_count * component_array_ptr->m_component_size);
 	if (new_ptr)
 		component_array_ptr->m_components = new_ptr;

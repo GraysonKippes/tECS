@@ -6,12 +6,15 @@
 #include "entity.h"
 #include "archetype.h"
 
+// A record of an entity indicates what archetype that entity belongs to, and in which row that entity's components can be found.
 typedef struct record_t {
-	archetype_t *m_archetype_ptr;
-	size_t m_row;
-} record_t;
 
-// Returns a pointer to the component at the specified column in the record's row in the record's component table.
-void *get_component(record_t record, size_t column);
+	// Points to the archetype to which the entity to which this record belongs belongs.
+	archetype_t *m_archetype_ptr;
+
+	// The row in the archetype corresponding to the entity to which this record belongs.
+	size_t m_row;
+
+} record_t;
 
 #endif // RECORD_H

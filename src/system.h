@@ -3,7 +3,7 @@
 
 #include "archetype.h"
 
-// Pointer to a function that can be executed on all rows of an archetype.
+// A system is a function that can be executed on all rows of components in an archetype.
 typedef void (*system_t)(archetype_t *archetype_ptr, size_t row, void *data_ptr);
 
 // Executes the system on the archetype.
